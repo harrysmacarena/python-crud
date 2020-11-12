@@ -1,0 +1,12 @@
+ 	<label class="col-sm-3 control-label" for="input01">Comuna</label>
+	<div class="col-sm-3">
+	  <select notnull=""  title="Imagen" 
+	            type="text" class="input-large required " 
+	            id="cbComuna" name="cbComuna" 
+	            onchange="mpComuna.loadCombo(document.getElementById('cbProvincia').value)" 
+	            style="width: 400px">
+	       {% for comu in regComuna %}
+	             <option value='{{comu.id_comuna}}'>{{comu.nombre_comuna}}</option>
+	       {% endfor %}
+	  </select>
+	</div>

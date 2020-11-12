@@ -1,0 +1,37 @@
+CREATE TABLE croe_persona (
+  run int(11) NOT NULL,
+  dv char(1) DEFAULT NULL,
+  nombres varchar(50) DEFAULT NULL,
+  ape_paterno varchar(50) DEFAULT NULL,
+  ape_materno varchar(50) DEFAULT NULL,
+  imagen varchar(150) DEFAULT NULL,
+  PRIMARY KEY (run)
+) ;
+CREATE TABLE croe_region (
+  id_region int(11) NOT NULL,
+  nombre varchar(200) DEFAULT NULL,
+  stImagen varchar(200) DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  PRIMARY KEY (id_region)
+) ;
+CREATE TABLE croe_provincia (
+  id_provincia int(11) NOT NULL,
+  nombre varchar(200) DEFAULT NULL,
+  stImagen varchar(200) DEFAULT NULL,
+  id_region int(11),
+  updated_at datetime DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  PRIMARY KEY (id_provincia),
+  foreign key (id_region) references croe_region(id_region)
+) ;
+CREATE TABLE croe_comuna (
+  id_comuna int(11) NOT NULL,
+  nombre varchar(200) DEFAULT NULL,
+  stImagen varchar(200) DEFAULT NULL,
+  id_provincia int not null,
+  updated_at datetime DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  PRIMARY KEY (id_comuna),
+  foreign key (id_provincia) references croe_provincia(id_provincia)
+) ;

@@ -1,0 +1,131 @@
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <table id="tblTitulo1" class="table1" width="100%">
+                      <tr>
+                        <td>
+                          <h2><b>&nbsp;&nbsp;Persona</b></h2></td>
+                      </tr>
+                    </table>
+					<div class="container_table box-title table-responsive" style="width: 100%">
+					  <form class="form-horizontal well" id="forms-registro">
+						  <div class="form-group">
+   							  <label class="col-sm-3 control-label" for="input01">Run</label>
+   							  <div class="col-sm-3">
+   								  <input notnull="" title="Run" 
+                          type="text" 
+                          class="input-large required " 
+                          id="txRun" name="txRun" 
+                          maxlength="10"
+                          value="{{regPersona.run}}"
+                          >
+   							  </div>
+   						  </div>
+						  <div class="form-group">
+							  <label class="col-sm-3 control-label" for="input01">Nombres</label>
+							  <div class="col-sm-3">
+								  <input notnull="" disabled title="Nombres" 
+                          type="text" class="input-large required " 
+                          id="txNombres" name="txNombres" 
+                          maxlength="100" 
+                          value="{{regPersona.nombres}}">
+							  </div>
+						  </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input01">Ap.Paterno</label>
+                <div class="col-sm-3">
+                  <input notnull="" disabled title="Apellido Paterno" 
+                            type="text" class="input-large required " 
+                            id="txApePaterno" name="txApePaterno" 
+                            maxlength="100" 
+                            value="{{regPersona.apePaterno}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input01">Ap.Materno</label>
+                <div class="col-sm-3">
+                  <input notnull="" disabled title="Apellido Materno" 
+                  type="text" class="input-large required " 
+                  id="txApeMaterno" name="txApeMaterno" 
+                  maxlength="100" 
+                  value="{{regPersona.apePaterno}}">
+                </div>
+              </div>  
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input01">Imagen</label>
+                <div class="col-sm-3">
+                  <input notnull="" disabled title="Image Persona" 
+                      type="text" class="input-large required " 
+                      id="txImagen" name="txImagen" 
+                      maxlength="100" 
+                      value="{{regPersona.imagen}}">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input01">Region</label>
+                <div class="col-sm-3">
+                  <select notnull="" disabled title="Imagen" 
+                            type="text" class="input-large required " 
+                            id="cbRegion" name="cbRegion" 
+                            onchange="mpProvincia.loadCombo(document.getElementById('cbRegion').value)" 
+                            style="width: 400px">
+                       {% for reg in regRegion %}
+                             <option value='{{reg.id_region}}'>{{reg.nombre}}</option>
+                       {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" id="selProvincia">
+                <label class="col-sm-3 control-label" for="input01">Provincia</label>
+                <div class="col-sm-3">
+                  <select notnull="" disabled title="Imagen" 
+                            type="text" class="input-large required " 
+                            id="cbProvincia" name="cbProvincia" 
+                            onchange="mpComuna.loadCombo(document.getElementById('cbProvincia').value)" 
+                            style="width: 400px">
+                       {% for prov in regProvincia %}
+                             <option value='{{prov.id_provincia}}'>{{prov.nombre}}</option>
+                       {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group"  id="selComuna">
+                <label class="col-sm-3 control-label" for="input01">Comuna</label>
+                <div class="col-sm-3">
+                  <select notnull="" disabled title="Imagen" 
+                            type="text" class="input-large required " 
+                            id="cbComuna" name="cbComuna" 
+                            style="width: 400px">
+                       {% for comu in regComuna %}
+                             <option value='{{comu.id_comuna}}'>{{comu.nombre_comuna}}</option>
+                       {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+
+						  </<form class="" action="index.html" method="post">
+
+						  </form>
+					  </div>
+
+<!-- **************************************************************************-->
+			<div class="form-actions">
+			  <table width="100%" border="0"><tbody><tr><td width="100%" align="right">
+  <button type="button" align="right" name="btLeer" id="btLeer" class="btn  btn-success" onclick="javascript:mpPersona.leer();"><i class="fa fa-floppy-save"></i> Leer</button>
+  <button type="button" disabled  name="btActualizar" id="btActualizar" align="right" class="btn  btn-success" onclick="javascript:mpPersona.actualizar();"><i class="fa fa-floppy-save"></i> Actualizar</button>
+  <button type="button" disabled  name="btEliminar" id="btEliminar" align="right" class="btn  btn-success" onclick="javascript:mpPersona.eliminar();"><i class="fa fa-floppy-save"></i> Eliminar</button>
+  <button type="button"   name="btListar" id="btListar" align="right" class="btn  btn-success" onclick="javascript:mpPersona.listar();"><i class="fa fa-floppy-save"></i> Listar</button>
+  <button align="right" disabled  name="btCancelar" id="btCancelar" class="btn btn-primary" name="commit" value="Cerrar" type="reset" onclick="javascript:mpPersona.cancelar()"><i class="fa fa-ok"> Cancelar</i></button>
+			  </td></tr></tbody></table>
+			</div>
+  </div>
+</div>
+</div>
+</div>
+</section>

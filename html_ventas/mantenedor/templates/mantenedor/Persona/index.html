@@ -1,0 +1,83 @@
+{% load static %}
+
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+
+      <div class="container text-center mt-5">
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Lista de Personas</h5>              
+            </div>
+          </div>
+
+          <div class="row mb-5">
+            <div class="col-md-10">
+              <div class="table-responsive">
+                {% if messages %}
+                <ul class="messages list-group mb-3">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div align="left" class="btn_crear mb-3">
+                  <a href="crear" type="button" class="btn btn-primary">Crear</a>
+                </div>
+
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th width="35%">run</th>
+                      <th>dv</th>
+                      <th>Nombres</th>
+                      <th>Ap.Paterno</th>
+                      <th>Ap.Materno</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for rowRegistos in ParRegistros %}
+                    <tr>
+                      <td>{{ rowRegistos.run }}-{{ rowRegistos.dv }}</td>
+                      <td>{{ rowRegistos.nombres }}</td>
+                      <td>{{ rowRegistos.ape_paterno }}</td>
+                      <td>{{ rowRegistos.ape_materno }}</td>
+                      
+                      <td><img src="{% static 'FotosImg/'%}{{rowRegistos.imagen}}" title="{{comuna.stImagen}}" alt="{{comuna.stImagen}}" class="img-fluid" width="17%"></td>
+                      <td>
+                        
+                        <form method="POST" action="eliminar/{{rowRegistos.run}}">
+                          
+                          {% csrf_token %}
+                          <div class="btn-group">
+                            mpPersona.edit()
+                            <a href="javascript:mpPersona.edit({{rowRegistos.run}})" title="Ver" type="button" class="btn btn-success"><i class="fa fa-home"></i></a>
+                            <!--a href="detalle/{{rowRegistos.run}}" title="Ver" type="button" class="btn btn-success"><i class="fa fa-home"></i></a>
+                            <a href="editar/{{rowRegistos.run}}" title="Editar" type="button" class="btn btn-primary"><i class="fa fa-home"></i></a>
+                            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                             <i class="fa fa-home"></i>
+                            </button-->
+                            <!-- <a href="eliminar/{{comuna.id_comuna}}" title="Eliminar"><i class="fas fa-trash"></i> </a> -->                          
+                          </div>
+
+                        </form>
+
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>          
+        </div>
+
+
+
+		  </div>
+		</div>
+	</div>
+   </div>
+</section>        
